@@ -1,0 +1,38 @@
+{
+  "name": "binance_futures_dataset_builder",
+  "version": "1.0.0",
+  "description": "The dataset builder script extracts the most relevant market data straight from Binance's API and builds and stores a series of datasets that can be used in data science and machine learning projects.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "clear && if [ -d './dist' ]; then rm -r ./dist; fi && npx tsc && node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jesusgraterol/binance_futures_dataset_builder.git"
+  },
+  "keywords": [
+    "Bitcoin",
+    "Blockchain",
+    "Dataset",
+    "Trading",
+    "Machine",
+    "Learning",
+    "Data",
+    "Science",
+    "Cryptocurrency",
+    "Binance",
+    "Binance Futures",
+    "Bitcoin Futures"
+  ],
+  "author": "Jesus Graterol",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jesusgraterol/binance_futures_dataset_builder/issues"
+  },
+  "homepage": "https://github.com/jesusgraterol/binance_futures_dataset_builder#readme",
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "typescript": "^5.1.6"
+  }
+}
