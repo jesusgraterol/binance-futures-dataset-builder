@@ -7,7 +7,7 @@ console.log(" ");
 // Start the syncing process
 sync_datasets()
 .then(_ => {
-    console.log("\nThe datasets has been synced successfully");
+    console.log("\n\nThe datasets has been synced successfully");
     process.exit(0);
 } )
 .catch(e => {
