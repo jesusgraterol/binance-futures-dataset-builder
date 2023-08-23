@@ -1,6 +1,7 @@
 import * as fs from "fs";
 import * as path_helper from "path";
 import { BigNumber } from "bignumber.js";
+import moment from "moment";
 import { BinanceService, IBinanceService } from "../binance";
 import { IDatasetBuilder, IDatasetItem } from "./interfaces";
 
@@ -53,19 +54,33 @@ export class DatasetBuilder implements IDatasetBuilder {
         let new_records_found: boolean = true;
         while(new_records_found) {
             // Retrieve the next series
-            const new_items: IDatasetItem[] = await this.get_next_ds_items(latest_timestamp + 1);
+            const new_items: IDatasetItem[] = await this.get_next_ds_items(latest_timestamp);
 
-            // Only proceed if new items were found
-            if (new_items.length) {
+            /**
+             * Only proceed if new items were found. Note that Binance's API seems to
+             * have a glitch on some endpoints and sometimes returns records that have
+             * already been included in the dataset. In order to prevent an infinite 
+             * loop, it is important to require at least 2 records.
+             */
+            if (new_items.length > 1) {
                 // Set the timestamp that will be used on the next query
                 latest_timestamp = new_items.at(-1)!.timestamp;
 
                 // If the file is currently empty, add the heading
                 if (!raw_dataset.length) raw_dataset = `${Object.keys(new_items[0]).join(",")}`;
 
-                // Add the new items to the raw dataset
+                // Add the new items to the raw dataset as long as they haven't been already added
                 raw_dataset += new_items.reduce(
-                    (accum: string, current_value: IDatasetItem) => accum + `\n${Object.values(current_value).join(",")}`,
+                    (
+                        accum: string, 
+                        current_value: IDatasetItem
+                    ) => {
+                        if (raw_dataset.includes(String(current_value.timestamp))) {
+                            return accum;
+                        } else {
+                            return accum + `\n${Object.values(current_value).join(",")}`;
+                        }
+                    },
                     ""
                 );
 
@@ -107,11 +122,7 @@ export class DatasetBuilder implements IDatasetBuilder {
      * @returns number
      */
     protected calculate_genesis_timestamp(): number {
-        // Calculate the number of milliseconds that should be subtracted from the time
-        const max_lookback_ms: number = (1000 * 60 * 60 * 24 * this.max_historic_lookback_days);
-
-        // Finally, return the genesis timestamp
-        return Date.now() - max_lookback_ms;
+        return moment().subtract(this.max_historic_lookback_days, "days").valueOf();
     } 
 
 

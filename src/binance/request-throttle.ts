@@ -9,7 +9,7 @@
  * blacklisted by their middlewares.
  * @param seconds
  */
-export const request_throttle = (seconds: number = 1) => {
+export const request_throttle = (seconds: number = 2) => {
     return (target: Object, property_key: string, descriptor: TypedPropertyDescriptor<(... params: any[])=> Promise<any>>) => {
         let original_func = descriptor.value!;
         descriptor.value = async function (...args) {

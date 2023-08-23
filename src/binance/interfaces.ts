@@ -18,6 +18,17 @@ export interface IBinanceService {
 
 
 
+/**
+ * Query Date Range
+ * When interacting with historical data through the Binance API, it is important
+ * to provide a full date range as it behaves unexpectedly otherwise.
+ */
+export interface IQueryDateRange { start: number, end: number }
+
+
+
+
+
 
 
 /**

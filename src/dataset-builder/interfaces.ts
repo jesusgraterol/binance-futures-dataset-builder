@@ -21,7 +21,7 @@ export interface IDatasetBuilder {
 
 
 // Dataset Item
-export type IDatasetItem = IFundingRateRecord|IOpenInterestRecord;
+export type IDatasetItem = IFundingRateRecord|IOpenInterestRecord|ILongShortRatioRecord|ITakerBuySellVolumeRecord;
 
 
 
@@ -83,4 +83,58 @@ export interface IOpenInterestRecord extends IDatasetItemSkeleton {
 
     // Total open interest value (USDT)
     sum_open_interest_value: number
+}
+
+
+
+
+
+/********************
+ * Long/Short Ratio *
+ ********************/
+
+
+// Service
+export interface ILongShortRatioService extends IDatasetBuilder { }
+
+
+
+// Record
+export interface ILongShortRatioRecord extends IDatasetItemSkeleton {
+    // Long account num ratio of all traders
+    long_account: number,
+
+    // Short account num ratio of all traders
+    short_account: number,
+
+    // Long/Short account num ratio of all traders
+    long_short_ratio: number
+}
+
+
+
+
+
+
+
+/*************************
+ * Taker Buy/Sell Volume *
+ *************************/
+
+
+// Service
+export interface ITakerBuySellVolumeService extends IDatasetBuilder { }
+
+
+
+// Record
+export interface ITakerBuySellVolumeRecord extends IDatasetItemSkeleton {
+    // Total BTC volume bought by Takers
+    buy_vol: number,
+
+    // Total BTC volume sold by Takers
+    sell_vol: number,
+
+    // The taker buy/sell ratio
+    buy_sell_ratio: number
 }
