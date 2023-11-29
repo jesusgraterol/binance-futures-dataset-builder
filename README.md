@@ -2,10 +2,15 @@
 
 The dataset builder script extracts the most relevant market data straight from Binance's API and builds and stores a series of datasets that can be used in data science and machine learning projects.
 
-These dataset files (updated quarterly) are hosted in Kaggle and can be downloaded from the following URL:
+These dataset files (updated quarterly) are hosted in Kaggle and can be downloaded from the following URLs:
 
-[https://www.kaggle.com/jesusgraterol/datasets](https://www.kaggle.com/jesusgraterol/datasets) 
+**Funding Rate:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-funding-rate-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-funding-rate-binance-futures-ds)
 
+**Long/Short Ratio:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-longshort-ratio-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-long-short-ratio-binance-futures-ds)
+
+**Open Interest:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-open-interest-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-open-interest-binance-futures-ds)
+
+**Taker Buy/Sell Volume:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-taker-buysell-volume-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-taker-buy-sell-volume-binance-futures-ds)
 
 
 #
@@ -115,6 +120,12 @@ Initialize the syncing process with:
 #
 ## Unit Tests
 
-Since the dataset files are deeply analyzed in Jupyter|Kaggle Notebooks, no unit tests were written. If you wish to see more details regarding this dataset, please visit:
+Since the dataset files are deeply analyzed in Jupyter|Kaggle Notebooks, no unit tests were written. If you wish to see more details regarding these datasets, please visit:
 
-[https://www.kaggle.com/jesusgraterol/datasets](https://www.kaggle.com/jesusgraterol/datasets)
+**Funding Rate:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-funding-rate-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-funding-rate-binance-futures-ds)
+
+**Long/Short Ratio:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-longshort-ratio-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-long-short-ratio-binance-futures-ds)
+
+**Open Interest:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-open-interest-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-open-interest-binance-futures-ds)
+
+**Taker Buy/Sell Volume:** [Dataset File](https://www.kaggle.com/datasets/jesusgraterol/bitcoin-taker-buysell-volume-binance-futures) | [Dataset Notebook](https://www.kaggle.com/code/jesusgraterol/bitcoin-taker-buy-sell-volume-binance-futures-ds)
